@@ -261,7 +261,7 @@ export const PLACES: Place[] = [
     category: 'hacer',
     lat: 41.1490,
     lng: -8.6230,
-    imageUrl: 'https://images.unsplash.com/photo-1578926288207-a90a5366759d?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1531913764164-f85c3e01b2aa?w=600&h=400&fit=crop&q=80',
     tip: 'Los sábados hay inauguraciones simultáneas. Entrada libre.',
   },
   {
