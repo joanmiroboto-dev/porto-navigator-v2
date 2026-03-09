@@ -37,7 +37,7 @@ const Index = () => {
           <p className="text-sm font-medium uppercase tracking-wider text-destructive">
             ​Pasear nuestro amor por           
           </p>
-          <h1 className="text-4xl font-extrabold text-white tracking-tight drop-shadow-lg">
+          <h1 className="text-4xl font-extrabold tracking-tight drop-shadow-lg text-muted">
             Oporto
           </h1>
           <p className="mt-1 text-white/90 flex items-center gap-1.5 text-sm">
