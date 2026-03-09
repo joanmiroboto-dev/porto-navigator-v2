@@ -281,7 +281,7 @@ export const PLACES: Place[] = [
     category: 'hacer',
     lat: 41.1490,
     lng: -8.6100,
-    imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=600&h=400&fit=crop&q=80',
     tip: 'Se paga con Andante. Vistas espectaculares de Foz do Douro.',
   },
 
