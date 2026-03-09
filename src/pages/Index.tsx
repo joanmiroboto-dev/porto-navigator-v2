@@ -26,19 +26,21 @@ const Index = () => {
   return (
     <div className="min-h-screen pb-24">
       {/* Hero */}
-      <div className="relative overflow-hidden bg-primary px-6 pb-12 pt-12">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/20" />
-          <div className="absolute -left-10 bottom-0 h-40 w-40 rounded-full bg-white/10" />
-        </div>
-        <div className="relative">
-          <p className="text-primary-foreground/70 text-sm font-medium uppercase tracking-wider">
+      <div className="relative overflow-hidden h-56">
+        <img
+          src={heroImg}
+          alt="Pareja en Oporto con el puente Dom Luís al fondo"
+          className="absolute inset-0 h-full w-full object-cover object-top"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+        <div className="relative flex h-full flex-col justify-end px-6 pb-6">
+          <p className="text-white/80 text-sm font-medium uppercase tracking-wider">
             Tu viaje a
           </p>
-          <h1 className="text-4xl font-extrabold text-primary-foreground tracking-tight">
+          <h1 className="text-4xl font-extrabold text-white tracking-tight drop-shadow-lg">
             Oporto
           </h1>
-          <p className="mt-1 text-primary-foreground/80 flex items-center gap-1.5 text-sm">
+          <p className="mt-1 text-white/90 flex items-center gap-1.5 text-sm">
             <CalendarDays className="h-4 w-4" />
             18 – 22 de marzo, 2026
           </p>
