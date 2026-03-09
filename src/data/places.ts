@@ -219,7 +219,7 @@ export const PLACES: Place[] = [
     category: 'hacer',
     lat: 41.1370,
     lng: -8.6125,
-    imageUrl: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&h=400&fit=crop&q=80',
     tip: 'La más auténtica y respetada por los locales',
     priceRange: '20-25€/persona',
   },
