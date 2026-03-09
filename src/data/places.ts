@@ -271,7 +271,7 @@ export const PLACES: Place[] = [
     category: 'hacer',
     lat: 41.1460,
     lng: -8.5950,
-    imageUrl: 'https://images.unsplash.com/photo-1533900298318-6b8da08a523e?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&h=400&fit=crop&q=80',
     tip: 'Solo sábados. Llega temprano para las mejores piezas.',
   },
   {
