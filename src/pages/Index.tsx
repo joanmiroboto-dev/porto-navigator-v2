@@ -34,10 +34,10 @@ const Index = () => {
         
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent my-0 border-destructive" />
         <div className="relative flex h-full flex-col justify-end px-6 pb-6">
-          <p className="text-sm font-medium uppercase tracking-wider text-destructive">
+          <p className="font-medium uppercase tracking-wider text-destructive text-xl">
             ​Pasear nuestro amor por           
           </p>
-          <h1 className="text-4xl font-extrabold tracking-tight drop-shadow-lg text-accent">
+          <h1 className="tracking-tight drop-shadow-lg text-accent text-5xl font-bold text-left">
             Oporto
           </h1>
           <p className="mt-1 text-white/90 flex items-center gap-1.5 text-sm">
