@@ -315,7 +315,7 @@ export const PLACES: Place[] = [
     category: 'comer',
     lat: 41.1460,
     lng: -8.6080,
-    imageUrl: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop&q=80',
     tip: 'Versión al horno de leña única',
     priceRange: '30-40€/pareja',
   },
