@@ -127,7 +127,7 @@ export const PLACES: Place[] = [
     category: 'ver',
     lat: 41.1414,
     lng: -8.6162,
-    imageUrl: 'https://images.unsplash.com/photo-1566654761376-5c97fdab3abb?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1467803738586-46b7eb7b16a1?w=600&h=400&fit=crop&q=80',
   },
   {
     id: 'jardines-cristal',
