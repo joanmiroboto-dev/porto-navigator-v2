@@ -89,7 +89,7 @@ export const PLACES: Place[] = [
     category: 'ver',
     lat: 41.1458,
     lng: -8.6146,
-    imageUrl: 'https://images.unsplash.com/photo-1593179357196-ea11a2e7c119?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1563906267088-b029e7101114?w=600&h=400&fit=crop&q=80',
   },
   {
     id: 'capela-almas',
