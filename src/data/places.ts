@@ -293,7 +293,7 @@ export const PLACES: Place[] = [
     category: 'comer',
     lat: 41.1488,
     lng: -8.6052,
-    imageUrl: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=400&fit=crop&q=80',
     tip: 'Pide la Francesinha especial con huevo y patatas',
     priceRange: '25-30€/pareja',
   },
