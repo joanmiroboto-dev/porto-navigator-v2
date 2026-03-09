@@ -356,7 +356,7 @@ export const PLACES: Place[] = [
     category: 'comer',
     lat: 41.1480,
     lng: -8.6090,
-    imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=600&h=400&fit=crop&q=80',
     tip: 'Solo 2.50€ cada bifana. Pide con mostaza.',
     priceRange: '10-15€/pareja',
   },
