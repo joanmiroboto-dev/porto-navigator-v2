@@ -49,7 +49,7 @@ export const PLACES: Place[] = [
     category: 'ver',
     lat: 41.1408,
     lng: -8.6132,
-    imageUrl: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=600&h=400&fit=crop&h=400&fit=crop&h=400&fit=crop&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=600&h=400&fit=crop&h=400&fit=crop&h=400&fit=crop&h=400&fit=crop&q=80',
     tip: 'Mejor al atardecer para fotos increíbles',
   },
   {
@@ -59,7 +59,7 @@ export const PLACES: Place[] = [
     category: 'ver',
     lat: 41.1395,
     lng: -8.6093,
-    imageUrl: 'https://images.unsplash.com/photo600&h=400&fit=crop69959220744-600&h=400&fit=crop53533f492?w=800&q=80',
+    imageUrl: 'https://images.uns600&h=400&fit=cropsh.com/photo600&h=400&fit=crop69959220744-600&h=400&fit=crop53533f492?w=800&q=80',
     tip: 'Cruza por el nivel inferior para ir a Gaia y por el superior para las vistas',
   },
   {
@@ -69,7 +69,7 @@ export const PLACES: Place[] = [
     category: 'ver',
     lat: 41.1456,
     lng: -8.6102,
-    imageUrl: 'https://images.unsplash.com/photo600&h=400&fit=crop13861615547-f1da86f0c7eb?w=800&q=80',
+    imageUrl: 'htt600&h=400&fit=crop//images.unsplash.com/photo600&h=400&fit=crop13861615547-f1da86f0c7eb?w=800&q=80',
     tip: 'Entrada libre, visítala temprano para evitar multitudes',
   },
   {
@@ -79,7 +79,7 @@ export const PLACES: Place[] = [
     category: 'ver',
     lat: 41.1468,
     lng: -8.6148,
-    imageUrl: 'https://images.unsplash.com/photo-1571167530149-c1105da4c2c7?w=800&q=80',
+    imageUrl: 'https://images.uns600&h=400&fit=cropsh.com/photo-1571167530149-c1105da4c2c7?w=800&q=80',
     tip: 'Compra entrada online (5€, descontables en libros). Ve temprano para evitar colas.',
   },
   {
