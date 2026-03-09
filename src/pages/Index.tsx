@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { MapPin, CalendarDays, ChevronRight, Sparkles } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Badge } from '@/components/ui/badge';
+import heroImg from '@/assets/hero-oporto.png';
 
 const Index = () => {
   const { visitedPlaces } = useTrip();
