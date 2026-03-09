@@ -117,7 +117,7 @@ export const PLACES: Place[] = [
     category: 'ver',
     lat: 41.1413,
     lng: -8.6157,
-    imageUrl: 'https://images.unsplash.com/photo-1574359411659-15573a27d625?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=600&h=400&fit=crop&q=80',
     tip: 'Accede por los callejones medievales del barrio de Barredo',
   },
   {
