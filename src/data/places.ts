@@ -241,7 +241,7 @@ export const PLACES: Place[] = [
     category: 'hacer',
     lat: 41.1375,
     lng: -8.6098,
-    imageUrl: 'https://images.unsplash.com/photo-1609868828687-c9fc7612fcb5?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&h=400&fit=crop&q=80',
     tip: 'Compra una botella de vino verde en un supermercado y haz picnic',
   },
   {
