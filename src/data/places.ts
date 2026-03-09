@@ -146,7 +146,7 @@ export const PLACES: Place[] = [
     category: 'ver',
     lat: 41.1430,
     lng: -8.6113,
-    imageUrl: 'https://images.unsplash.com/photo-1599057841498-3c05d3f23a24?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=600&h=400&fit=crop&q=80',
   },
   {
     id: 'foz-douro',
