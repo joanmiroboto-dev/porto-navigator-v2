@@ -251,7 +251,7 @@ export const PLACES: Place[] = [
     category: 'hacer',
     lat: 41.1440,
     lng: -8.6210,
-    imageUrl: 'https://images.unsplash.com/photo-1609868828687-c9fc7612fcb5?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=600&h=400&fit=crop&q=80',
     tip: 'Lleva productos del mercado o supermercado. Perfecto para parejas.',
   },
   {
