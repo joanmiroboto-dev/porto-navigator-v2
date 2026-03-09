@@ -175,7 +175,7 @@ export const PLACES: Place[] = [
     category: 'ver',
     lat: 41.1499,
     lng: -8.6063,
-    imageUrl: 'https://images.unsplash.com/photo-1533900298318-6b8da08a523e?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&h=400&fit=crop&q=80',
     tip: 'Sube a la segunda planta para un café con vistas al mercado.',
   },
 
