@@ -378,7 +378,7 @@ export const PLACES: Place[] = [
     category: 'comer',
     lat: 41.1415,
     lng: -8.6140,
-    imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=600&h=400&fit=crop&q=80',
     priceRange: '20-25€/pareja',
   },
   {
