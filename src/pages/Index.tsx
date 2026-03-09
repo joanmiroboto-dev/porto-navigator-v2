@@ -11,17 +11,17 @@ const Index = () => {
   const { visitedPlaces } = useTrip();
   const navigate = useNavigate();
 
-  const uniquePlaceIds = new Set(DAY_PLANS.flatMap(d => d.places));
+  const uniquePlaceIds = new Set(DAY_PLANS.flatMap((d) => d.places));
   const totalPlaces = uniquePlaceIds.size;
-  const visitedCount = [...uniquePlaceIds].filter(id => visitedPlaces.has(id)).length;
-  const progress = totalPlaces > 0 ? (visitedCount / totalPlaces) * 100 : 0;
+  const visitedCount = [...uniquePlaceIds].filter((id) => visitedPlaces.has(id)).length;
+  const progress = totalPlaces > 0 ? visitedCount / totalPlaces * 100 : 0;
 
   // Find today's or next plan
   const today = new Date().toISOString().slice(0, 10);
-  const currentDay = DAY_PLANS.find(d => d.date >= today) || DAY_PLANS[0];
+  const currentDay = DAY_PLANS.find((d) => d.date >= today) || DAY_PLANS[0];
 
   // Upcoming events (next 2)
-  const upcomingEvents = EVENTS.filter(e => e.date >= (currentDay?.date || today)).slice(0, 2);
+  const upcomingEvents = EVENTS.filter((e) => e.date >= (currentDay?.date || today)).slice(0, 2);
 
   return (
     <div className="min-h-screen pb-24">
@@ -30,9 +30,9 @@ const Index = () => {
         <img
           src={heroImg}
           alt="Pareja en Oporto con el puente Dom Luís al fondo"
-          className="absolute inset-0 h-full w-full object-cover object-top"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+          className="absolute inset-0 h-full w-full object-cover object-top" />
+        
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent my-0 border-destructive" />
         <div className="relative flex h-full flex-col justify-end px-6 pb-6">
           <p className="text-white/80 text-sm font-medium uppercase tracking-wider">
             Tu viaje a
@@ -57,9 +57,9 @@ const Index = () => {
             </div>
             <Progress value={progress} className="h-2.5" />
             <p className="mt-2 text-xs text-muted-foreground">
-              {visitedCount === totalPlaces
-                ? '🎉 ¡Has completado todos los lugares!'
-                : `Te faltan ${totalPlaces - visitedCount} lugares por visitar`}
+              {visitedCount === totalPlaces ?
+              '🎉 ¡Has completado todos los lugares!' :
+              `Te faltan ${totalPlaces - visitedCount} lugares por visitar`}
             </p>
           </CardContent>
         </Card>
@@ -67,8 +67,8 @@ const Index = () => {
         {/* Next Plan Card */}
         <button
           onClick={() => navigate('/itinerario')}
-          className="w-full text-left"
-        >
+          className="w-full text-left">
+          
           <Card className="shadow-md hover:shadow-lg transition-shadow border-accent/20">
             <CardContent className="p-5">
               <div className="flex items-center justify-between">
@@ -88,49 +88,49 @@ const Index = () => {
         </button>
 
         {/* Upcoming Events */}
-        {upcomingEvents.length > 0 && (
-          <div>
+        {upcomingEvents.length > 0 &&
+        <div>
             <h2 className="text-sm font-bold text-foreground mb-2 flex items-center gap-1.5">
               <Sparkles className="h-4 w-4 text-accent" />
               Próximos eventos
             </h2>
             <div className="space-y-2">
-              {upcomingEvents.map(event => (
-                <Card key={event.id} className="shadow-sm border-accent/10">
+              {upcomingEvents.map((event) =>
+            <Card key={event.id} className="shadow-sm border-accent/10">
                   <CardContent className="p-4">
                     <div className="flex items-start justify-between gap-2">
                       <div>
                         <p className="text-sm font-semibold text-foreground">{event.name}</p>
                         <p className="text-xs text-muted-foreground">{event.dateLabel} · {event.location}</p>
                       </div>
-                      {event.price && (
-                        <Badge variant="outline" className="shrink-0 text-[10px] border-accent/30 text-accent">
+                      {event.price &&
+                  <Badge variant="outline" className="shrink-0 text-[10px] border-accent/30 text-accent">
                           {event.price}
                         </Badge>
-                      )}
+                  }
                     </div>
                   </CardContent>
                 </Card>
-              ))}
+            )}
             </div>
           </div>
-        )}
+        }
 
         {/* Quick Stats */}
         <div className="grid grid-cols-3 gap-3">
           {([
-            { label: 'Ver', count: PLACES.filter(p => p.category === 'ver').length, icon: '🏛️' },
-            { label: 'Hacer', count: PLACES.filter(p => p.category === 'hacer').length, icon: '🚢' },
-            { label: 'Comer', count: PLACES.filter(p => p.category === 'comer').length, icon: '🍽️' },
-          ] as const).map(stat => (
-            <Card key={stat.label} className="shadow-sm">
+          { label: 'Ver', count: PLACES.filter((p) => p.category === 'ver').length, icon: '🏛️' },
+          { label: 'Hacer', count: PLACES.filter((p) => p.category === 'hacer').length, icon: '🚢' },
+          { label: 'Comer', count: PLACES.filter((p) => p.category === 'comer').length, icon: '🍽️' }] as
+          const).map((stat) =>
+          <Card key={stat.label} className="shadow-sm">
               <CardContent className="p-4 text-center">
                 <span className="text-2xl">{stat.icon}</span>
                 <p className="mt-1 text-lg font-bold text-foreground">{stat.count}</p>
                 <p className="text-xs text-muted-foreground">{stat.label}</p>
               </CardContent>
             </Card>
-          ))}
+          )}
         </div>
 
         {/* Places overview */}
@@ -140,27 +140,27 @@ const Index = () => {
             Lugares destacados
           </h2>
           <div className="flex gap-3 overflow-x-auto pb-2 -mx-4 px-4 snap-x">
-            {PLACES.slice(0, 8).map(place => (
-              <div
-                key={place.id}
-                className="shrink-0 w-36 snap-start"
-              >
+            {PLACES.slice(0, 8).map((place) =>
+            <div
+              key={place.id}
+              className="shrink-0 w-36 snap-start">
+              
                 <div className="relative h-24 rounded-xl overflow-hidden">
                   <img
-                    src={place.imageUrl}
-                    alt={place.name}
-                    className="h-full w-full object-cover"
-                    loading="lazy"
-                  />
+                  src={place.imageUrl}
+                  alt={place.name}
+                  className="h-full w-full object-cover"
+                  loading="lazy" />
+                
                 </div>
                 <p className="mt-1.5 text-xs font-medium text-foreground truncate">{place.name}</p>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 };
 
 export default Index;
