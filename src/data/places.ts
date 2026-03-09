@@ -187,7 +187,7 @@ export const PLACES: Place[] = [
     category: 'hacer',
     lat: 41.1403,
     lng: -8.6160,
-    imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop&q=80',
     tip: 'Reserva para la mañana, hay menos gente',
   },
   {
