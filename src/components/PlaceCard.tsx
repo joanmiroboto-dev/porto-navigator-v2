@@ -1,17 +1,35 @@
+import { useState } from 'react';
 import { Place, CATEGORY_CONFIG } from '@/data/places';
 import { useTrip } from '@/context/TripContext';
 import { Badge } from '@/components/ui/badge';
 import { Checkbox } from '@/components/ui/checkbox';
-import { MapPin, Check } from 'lucide-react';
+import { Textarea } from '@/components/ui/textarea';
+import { MapPin, Check, StickyNote, ChevronDown, ChevronUp } from 'lucide-react';
 
 interface PlaceCardProps {
   place: Place;
 }
 
 export function PlaceCard({ place }: PlaceCardProps) {
-  const { isVisited, toggleVisited } = useTrip();
+  const { isVisited, toggleVisited, getNote, setNote } = useTrip();
   const visited = isVisited(place.id);
   const cat = CATEGORY_CONFIG[place.category];
+  const currentNote = getNote(place.id);
+  const [showNotes, setShowNotes] = useState(false);
+  const [draft, setDraft] = useState(currentNote);
+
+  const handleToggleNotes = () => {
+    if (showNotes && draft !== currentNote) {
+      setNote(place.id, draft);
+    }
+    setShowNotes(!showNotes);
+  };
+
+  const handleBlur = () => {
+    if (draft !== currentNote) {
+      setNote(place.id, draft);
+    }
+  };
 
   return (
     <div
@@ -56,6 +74,41 @@ export function PlaceCard({ place }: PlaceCardProps) {
           <p className="mt-1 text-[11px] text-muted-foreground font-medium">
             💰 {place.priceRange}
           </p>
+        )}
+
+        {/* Notes toggle */}
+        <button
+          onClick={handleToggleNotes}
+          className="mt-3 flex w-full items-center gap-1.5 text-xs font-medium text-primary hover:text-primary/80 transition-colors"
+        >
+          <StickyNote className="h-3.5 w-3.5" />
+          {currentNote ? 'Tu nota' : 'Añadir nota'}
+          {currentNote && !showNotes && (
+            <span className="ml-1 text-muted-foreground font-normal truncate max-w-[150px]">
+              – {currentNote}
+            </span>
+          )}
+          {showNotes ? (
+            <ChevronUp className="h-3 w-3 ml-auto" />
+          ) : (
+            <ChevronDown className="h-3 w-3 ml-auto" />
+          )}
+        </button>
+
+        {showNotes && (
+          <div className="mt-2">
+            <Textarea
+              value={draft}
+              onChange={e => setDraft(e.target.value)}
+              onBlur={handleBlur}
+              placeholder="Escribe tus tips, recordatorios u observaciones..."
+              className="min-h-[72px] text-sm resize-none"
+              rows={3}
+            />
+            {draft !== currentNote && (
+              <p className="mt-1 text-[10px] text-muted-foreground">Se guarda automáticamente al cerrar</p>
+            )}
+          </div>
         )}
       </div>
     </div>
