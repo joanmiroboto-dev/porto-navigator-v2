@@ -136,7 +136,7 @@ export const PLACES: Place[] = [
     category: 'ver',
     lat: 41.1475,
     lng: -8.6270,
-    imageUrl: 'https://images.unsplash.com/photo-1585938389612-a552a28d6914?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1558452919-08ae4aea8e29?w=600&h=400&fit=crop&q=80',
     tip: 'El Museo Romántico dentro del recinto es gratis sábados y domingos.',
   },
   {
