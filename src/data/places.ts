@@ -304,7 +304,7 @@ export const PLACES: Place[] = [
     category: 'comer',
     lat: 41.1485,
     lng: -8.6055,
-    imageUrl: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1550547660-d9450f859349?w=600&h=400&fit=crop&q=80',
     tip: 'Tienen opción vegetariana excelente',
     priceRange: '25-30€/pareja',
   },
