@@ -1,9 +1,10 @@
-import { PLACES, DAY_PLANS } from '@/data/places';
+import { PLACES, DAY_PLANS, EVENTS } from '@/data/places';
 import { useTrip } from '@/context/TripContext';
 import { Progress } from '@/components/ui/progress';
 import { Card, CardContent } from '@/components/ui/card';
-import { MapPin, CalendarDays, ChevronRight } from 'lucide-react';
+import { MapPin, CalendarDays, ChevronRight, Sparkles } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { Badge } from '@/components/ui/badge';
 
 const Index = () => {
   const { visitedPlaces } = useTrip();
@@ -17,6 +18,9 @@ const Index = () => {
   // Find today's or next plan
   const today = new Date().toISOString().slice(0, 10);
   const currentDay = DAY_PLANS.find(d => d.date >= today) || DAY_PLANS[0];
+
+  // Upcoming events (next 2)
+  const upcomingEvents = EVENTS.filter(e => e.date >= (currentDay?.date || today)).slice(0, 2);
 
   return (
     <div className="min-h-screen pb-24">
@@ -35,7 +39,7 @@ const Index = () => {
           </h1>
           <p className="mt-1 text-primary-foreground/80 flex items-center gap-1.5 text-sm">
             <CalendarDays className="h-4 w-4" />
-            18 – 22 de marzo, 2025
+            18 – 22 de marzo, 2026
           </p>
         </div>
       </div>
@@ -71,7 +75,7 @@ const Index = () => {
                   </p>
                   <p className="mt-1 font-semibold text-foreground">{currentDay.label}</p>
                   <p className="mt-0.5 text-sm text-muted-foreground">
-                    {currentDay.places.length} lugares programados
+                    {currentDay.places.length} lugares · {currentDay.subtitle}
                   </p>
                 </div>
                 <ChevronRight className="h-5 w-5 text-accent" />
@@ -79,6 +83,35 @@ const Index = () => {
             </CardContent>
           </Card>
         </button>
+
+        {/* Upcoming Events */}
+        {upcomingEvents.length > 0 && (
+          <div>
+            <h2 className="text-sm font-bold text-foreground mb-2 flex items-center gap-1.5">
+              <Sparkles className="h-4 w-4 text-accent" />
+              Próximos eventos
+            </h2>
+            <div className="space-y-2">
+              {upcomingEvents.map(event => (
+                <Card key={event.id} className="shadow-sm border-accent/10">
+                  <CardContent className="p-4">
+                    <div className="flex items-start justify-between gap-2">
+                      <div>
+                        <p className="text-sm font-semibold text-foreground">{event.name}</p>
+                        <p className="text-xs text-muted-foreground">{event.dateLabel} · {event.location}</p>
+                      </div>
+                      {event.price && (
+                        <Badge variant="outline" className="shrink-0 text-[10px] border-accent/30 text-accent">
+                          {event.price}
+                        </Badge>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Quick Stats */}
         <div className="grid grid-cols-3 gap-3">
@@ -104,7 +137,7 @@ const Index = () => {
             Lugares destacados
           </h2>
           <div className="flex gap-3 overflow-x-auto pb-2 -mx-4 px-4 snap-x">
-            {PLACES.slice(0, 6).map(place => (
+            {PLACES.slice(0, 8).map(place => (
               <div
                 key={place.id}
                 className="shrink-0 w-36 snap-start"
