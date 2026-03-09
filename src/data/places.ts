@@ -336,7 +336,7 @@ export const PLACES: Place[] = [
     category: 'comer',
     lat: 41.1466,
     lng: -8.6123,
-    imageUrl: 'https://images.unsplash.com/photo-1611293388250-580b08c4a145?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1611293388250-580b08c4a145?w=600&h=400&fit=crop&q=80',
     tip: 'Pídelos calientes, recién salidos del horno',
   },
   {
