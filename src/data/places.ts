@@ -49,7 +49,7 @@ export const PLACES: Place[] = [
     category: 'ver',
     lat: 41.1408,
     lng: -8.6132,
-    imageUrl: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=600&h=400&fit=crop&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=600&h=400&fit=crop&h=400&fit=crop&q=80',
     tip: 'Mejor al atardecer para fotos increíbles',
   },
   {
@@ -59,7 +59,7 @@ export const PLACES: Place[] = [
     category: 'ver',
     lat: 41.1395,
     lng: -8.6093,
-    imageUrl: 'https://images.unsplash.com/photo-1569959220744-ff553533f492?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1569959220744-600&h=400&fit=crop53533f492?w=800&q=80',
     tip: 'Cruza por el nivel inferior para ir a Gaia y por el superior para las vistas',
   },
   {
