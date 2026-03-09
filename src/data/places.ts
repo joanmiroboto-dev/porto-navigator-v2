@@ -98,7 +98,7 @@ export const PLACES: Place[] = [
     category: 'ver',
     lat: 41.1490,
     lng: -8.6063,
-    imageUrl: 'https://images.unsplash.com/photo-1588263823647-ce3546d325bc?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1564594736624-def7a10ab047?w=600&h=400&fit=crop&q=80',
     tip: 'Gratuita. Pasea por Santa Catarina después para hacer shopping.',
   },
   {
