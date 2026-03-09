@@ -108,7 +108,7 @@ export const PLACES: Place[] = [
     category: 'ver',
     lat: 41.1467,
     lng: -8.6162,
-    imageUrl: 'https://images.unsplash.com/photo-1600025282051-ec0c6bf3137a?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1585208798174-6cedd86e019a?w=600&h=400&fit=crop&q=80',
   },
   {
     id: 'san-francisco',
