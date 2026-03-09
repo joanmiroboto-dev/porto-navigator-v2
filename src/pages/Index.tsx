@@ -26,7 +26,7 @@ const Index = () => {
   return (
     <div className="min-h-screen pb-24">
       {/* Hero */}
-      <div className="relative overflow-hidden h-56">
+      <div className="relative overflow-hidden h-80">
         <img
           src={heroImg}
           alt="Pareja en Oporto con el puente Dom Luís al fondo"
