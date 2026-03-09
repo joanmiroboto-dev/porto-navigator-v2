@@ -388,7 +388,7 @@ export const PLACES: Place[] = [
     category: 'comer',
     lat: 41.1850,
     lng: -8.6900,
-    imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&h=400&fit=crop&q=80',
     tip: 'Metro línea A hasta Matosinhos Sul. Pide sardinas o robalo a la brasa.',
     priceRange: '25-35€/pareja',
   },
