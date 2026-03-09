@@ -208,7 +208,7 @@ export const PLACES: Place[] = [
     category: 'hacer',
     lat: 41.1365,
     lng: -8.6110,
-    imageUrl: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&h=400&fit=crop&q=80',
     tip: "Terraza con vistas 360° al río y al Puente Luis I",
     priceRange: '20-25€/persona',
   },
