@@ -52,6 +52,11 @@ export function PlaceCard({ place }: PlaceCardProps) {
             {place.tip}
           </p>
         )}
+        {place.priceRange && (
+          <p className="mt-1 text-[11px] text-muted-foreground font-medium">
+            💰 {place.priceRange}
+          </p>
+        )}
       </div>
     </div>
   );
