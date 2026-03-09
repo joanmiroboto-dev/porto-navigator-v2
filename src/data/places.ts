@@ -49,7 +49,7 @@ export const PLACES: Place[] = [
     category: 'ver',
     lat: 41.1408,
     lng: -8.6132,
-    imageUrl: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=600&h=400&fit=crop&q=80',
     tip: 'Mejor al atardecer para fotos increíbles',
   },
   {
