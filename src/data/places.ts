@@ -230,7 +230,7 @@ export const PLACES: Place[] = [
     category: 'hacer',
     lat: 41.1368,
     lng: -8.6140,
-    imageUrl: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?w=600&h=400&fit=crop&q=80',
     tip: 'Cata de 3 vinos por ~20€. Evita Cálem (demasiado comercial).',
     priceRange: '~20€/persona',
   },
