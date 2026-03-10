@@ -2,10 +2,15 @@ import { PLACES, DAY_PLANS, EVENTS } from '@/data/places';
 import { useTrip } from '@/context/TripContext';
 import { Progress } from '@/components/ui/progress';
 import { Card, CardContent } from '@/components/ui/card';
-import { MapPin, CalendarDays, ChevronRight, Sparkles } from 'lucide-react';
+import { MapPin, CalendarDays, ChevronRight, Sparkles, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Badge } from '@/components/ui/badge';
+import { motion } from 'framer-motion';
 import heroImg from '@/assets/hero-oporto.png';
+import { TripStats } from '@/components/TripStats';
+import { WeatherWidget } from '@/components/WeatherWidget';
+import { Recommendations } from '@/components/Recommendations';
+import { ShareItinerary } from '@/components/ShareItinerary';
 
 const Index = () => {
   const { visitedPlaces } = useTrip();
@@ -23,144 +28,194 @@ const Index = () => {
   // Upcoming events (next 2)
   const upcomingEvents = EVENTS.filter((e) => e.date >= (currentDay?.date || today)).slice(0, 2);
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 },
+  };
+
   return (
     <div className="min-h-screen pb-24">
-      {/* Hero */}
-      <div className="relative overflow-hidden min-h-[700px]">
+      {/* Hero Section - Mejorado */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        className="relative overflow-hidden min-h-[700px] group"
+      >
         <img
           src={heroImg}
           alt="Pareja en Oporto con el puente Dom Luís al fondo"
-          className="absolute inset-0 h-full w-full object-cover object-top" />
-        
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent my-0 border-destructive" />
+          className="absolute inset-0 h-full w-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
         <div className="relative flex h-full flex-col justify-end px-6 pb-6">
-          <p className="font-medium uppercase tracking-wider text-destructive text-xl">
-            ​Pasear nuestro amor por           
-          </p>
-          <h1 className="tracking-tight drop-shadow-lg text-accent text-5xl font-bold text-left">
-            Oporto
-          </h1>
-          <p className="mt-1 text-white/90 flex items-center gap-1.5 text-sm">
-            <CalendarDays className="h-4 w-4" />
-            18 – 22 de marzo, 2026
-          </p>
-        </div>
-      </div>
-
-      <div className="mx-auto max-w-lg px-4 -mt-6 space-y-5">
-        {/* Progress Card */}
-        <Card className="shadow-lg">
-          <CardContent className="p-5">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-semibold text-foreground">Progreso del viaje</span>
-              <span className="text-sm font-bold text-primary">{visitedCount}/{totalPlaces}</span>
-            </div>
-            <Progress value={progress} className="h-2.5" />
-            <p className="mt-2 text-xs text-muted-foreground">
-              {visitedCount === totalPlaces ?
-              '🎉 ¡Has completado todos los lugares!' :
-              `Te faltan ${totalPlaces - visitedCount} lugares por visitar`}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <p className="font-medium uppercase tracking-wider text-red-400 text-xl">
+              Pasear nuestro amor por
             </p>
-          </CardContent>
-        </Card>
+            <h1 className="tracking-tight drop-shadow-lg text-white text-5xl font-bold text-left mt-2">
+              Oporto
+            </h1>
+            <p className="mt-3 text-white/90 flex items-center gap-1.5 text-sm">
+              <CalendarDays className="h-4 w-4" />
+              18 – 22 de marzo, 2026
+            </p>
+          </motion.div>
+        </div>
+      </motion.div>
 
-        {/* Next Plan Card */}
-        <button
-          onClick={() => navigate('/itinerario')}
-          className="w-full text-left">
-          
-          <Card className="shadow-md hover:shadow-lg transition-shadow border-accent/20">
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="mx-auto max-w-lg px-4 -mt-6 space-y-5"
+      >
+        {/* Weather Widget */}
+        <motion.div variants={item}>
+          <WeatherWidget />
+        </motion.div>
+
+        {/* Progress Card - Mejorado */}
+        <motion.div variants={item}>
+          <Card className="shadow-lg hover:shadow-xl transition-shadow">
             <CardContent className="p-5">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-xs font-medium text-accent uppercase tracking-wider">
-                    Siguiente plan
-                  </p>
-                  <p className="mt-1 font-semibold text-foreground">{currentDay.label}</p>
-                  <p className="mt-0.5 text-sm text-muted-foreground">
-                    {currentDay.places.length} lugares · {currentDay.subtitle}
-                  </p>
-                </div>
-                <ChevronRight className="h-5 w-5 text-accent" />
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-sm font-semibold text-foreground flex items-center gap-2">
+                  <Zap className="h-4 w-4 text-amber-500" />
+                  Progreso del viaje
+                </span>
+                <span className="text-sm font-bold text-primary">{visitedCount}/{totalPlaces}</span>
               </div>
+              <Progress value={progress} className="h-3" />
+              <p className="mt-3 text-xs text-muted-foreground">
+                {visitedCount === totalPlaces
+                  ? '🎉 ¡Has completado todos los lugares!'
+                  : `Te faltan ${totalPlaces - visitedCount} lugares por visitar`}
+              </p>
             </CardContent>
           </Card>
-        </button>
+        </motion.div>
 
-        {/* Upcoming Events */}
-        {upcomingEvents.length > 0 &&
-        <div>
-            <h2 className="text-sm font-bold text-foreground mb-2 flex items-center gap-1.5">
-              <Sparkles className="h-4 w-4 text-accent" />
-              Próximos eventos
-            </h2>
-            <div className="space-y-2">
-              {upcomingEvents.map((event) =>
-            <Card key={event.id} className="shadow-sm border-accent/10">
-                  <CardContent className="p-4">
-                    <div className="flex items-start justify-between gap-2">
-                      <div>
-                        <p className="text-sm font-semibold text-foreground">{event.name}</p>
-                        <p className="text-xs text-muted-foreground">{event.dateLabel} · {event.location}</p>
-                      </div>
-                      {event.price &&
-                  <Badge variant="outline" className="shrink-0 text-[10px] border-accent/30 text-accent">
-                          {event.price}
-                        </Badge>
-                  }
-                    </div>
-                  </CardContent>
-                </Card>
-            )}
-            </div>
-          </div>
-        }
+        {/* Stats Grid */}
+        <motion.div variants={item}>
+          <TripStats />
+        </motion.div>
 
-        {/* Quick Stats */}
-        <div className="grid grid-cols-3 gap-3">
-          {([
-          { label: 'Ver', count: PLACES.filter((p) => p.category === 'ver').length, icon: '🏛️' },
-          { label: 'Hacer', count: PLACES.filter((p) => p.category === 'hacer').length, icon: '🚢' },
-          { label: 'Comer', count: PLACES.filter((p) => p.category === 'comer').length, icon: '🍽️' }] as
-          const).map((stat) =>
-          <Card key={stat.label} className="shadow-sm">
-              <CardContent className="p-4 text-center">
-                <span className="text-2xl">{stat.icon}</span>
-                <p className="mt-1 text-lg font-bold text-foreground">{stat.count}</p>
-                <p className="text-xs text-muted-foreground">{stat.label}</p>
+        {/* Next Plan Card - Mejorado */}
+        <motion.div variants={item}>
+          <button
+            onClick={() => navigate('/itinerario')}
+            className="w-full text-left"
+          >
+            <Card className="shadow-md hover:shadow-lg transition-all hover:scale-[1.02] border-accent/20">
+              <CardContent className="p-5">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-xs font-medium text-accent uppercase tracking-wider">
+                      Siguiente plan
+                    </p>
+                    <p className="mt-1 font-semibold text-foreground">{currentDay.label}</p>
+                    <p className="mt-0.5 text-sm text-muted-foreground">
+                      {currentDay.places.length} lugares · {currentDay.subtitle}
+                    </p>
+                  </div>
+                  <ChevronRight className="h-5 w-5 text-accent" />
+                </div>
               </CardContent>
             </Card>
-          )}
-        </div>
+          </button>
+        </motion.div>
 
-        {/* Places overview */}
-        <div>
-          <h2 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-            <MapPin className="h-5 w-5 text-primary" />
-            Lugares destacados
-          </h2>
-          <div className="flex gap-3 overflow-x-auto pb-2 -mx-4 px-4 snap-x">
-            {PLACES.slice(0, 8).map((place) =>
-            <div
-              key={place.id}
-              className="shrink-0 w-36 snap-start">
-              
-                <div className="relative h-24 rounded-xl overflow-hidden">
-                  <img
-                  src={place.imageUrl}
-                  alt={place.name}
-                  className="h-full w-full object-cover"
-                  loading="lazy" />
-                
-                </div>
-                <p className="mt-1.5 text-xs font-medium text-foreground truncate">{place.name}</p>
+        {/* Upcoming Events */}
+        {upcomingEvents.length > 0 && (
+          <motion.div variants={item}>
+            <div>
+              <h2 className="text-sm font-bold text-foreground mb-2 flex items-center gap-1.5">
+                <Sparkles className="h-4 w-4 text-accent" />
+                Próximos eventos
+              </h2>
+              <div className="space-y-2">
+                {upcomingEvents.map((event) => (
+                  <Card key={event.id} className="shadow-sm border-accent/10 hover:shadow-md transition-shadow">
+                    <CardContent className="p-4">
+                      <div className="flex items-start justify-between gap-2">
+                        <div>
+                          <p className="text-sm font-semibold text-foreground">{event.name}</p>
+                          <p className="text-xs text-muted-foreground">{event.dateLabel} · {event.location}</p>
+                        </div>
+                        {event.price && (
+                          <Badge variant="outline" className="shrink-0 text-[10px] border-accent/30 text-accent">
+                            {event.price}
+                          </Badge>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>);
+            </div>
+          </motion.div>
+        )}
 
+        {/* Places overview - Mejorado */}
+        <motion.div variants={item}>
+          <div>
+            <h2 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+              <MapPin className="h-5 w-5 text-primary" />
+              Lugares destacados
+            </h2>
+            <div className="flex gap-3 overflow-x-auto pb-2 -mx-4 px-4 snap-x">
+              {PLACES.slice(0, 8).map((place, idx) => (
+                <motion.div
+                  key={place.id}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.05 }}
+                  className="shrink-0 w-36 snap-start"
+                >
+                  <div className="relative h-24 rounded-xl overflow-hidden group cursor-pointer">
+                    <img
+                      src={place.imageUrl}
+                      alt={place.name}
+                      className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
+                  </div>
+                  <p className="mt-1.5 text-xs font-medium text-foreground truncate">{place.name}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Recommendations */}
+        <motion.div variants={item}>
+          <Recommendations />
+        </motion.div>
+
+        {/* Share Button */}
+        <motion.div variants={item} className="flex justify-center pt-2">
+          <ShareItinerary />
+        </motion.div>
+      </motion.div>
+    </div>
+  );
 };
 
 export default Index;
